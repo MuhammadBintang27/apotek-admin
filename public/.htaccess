@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /corepotek-admin/
+
+  # Jangan sentuh file/folder yang beneran ada (JS, CSS, gambar, dll)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Sisanya (route Vue Router) di-serve lewat index.html
+  RewriteRule . /corepotek-admin/index.html [L]
+</IfModule>

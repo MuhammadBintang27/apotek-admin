@@ -1,0 +1,342 @@
+/* main.css — Global utilities & PrimeVue overrides */
+
+@import './theme.css';
+@import './base.css';
+
+/* ── App root ── */
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── PrimeVue: DatePicker header buttons ── */
+.p-datepicker-select-year,
+.p-datepicker-select-month {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  user-select: none;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.p-datepicker-select-year:hover,
+.p-datepicker-select-month:hover {
+  background: var(--color-primary-soft) !important;
+  color: var(--color-primary) !important;
+}
+
+/* ── PrimeVue: Paginator rows-per-page fix ── */
+.p-paginator .p-select {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-width: 5rem !important;
+  cursor: pointer !important;
+  position: relative !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-card) !important;
+  padding: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  box-shadow: none !important;
+}
+.p-paginator .p-select .p-select-label {
+  display: block !important;
+  padding: 0.3rem 0.5rem !important;
+  font-size: var(--font-size-sm) !important;
+  white-space: nowrap !important;
+  color: var(--color-text) !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+.p-paginator .p-select .p-select-dropdown {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2rem !important;
+  flex-shrink: 0 !important;
+  color: var(--color-muted) !important;
+}
+
+/* ── Global Print ── */
+@media print {
+  .app-sidebar,
+  .app-navbar,
+  .app-footer {
+    display: none !important;
+  }
+  .app-main {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+  body,
+  #app {
+    overflow: visible !important;
+  }
+}
+
+/* ── Utility: visually hidden (a11y) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Utility: truncate text ── */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Global Layout & Card Utilities ── */
+/* Padding halaman sudah diberikan oleh .app-main di MainLayouts — jangan dobel. */
+.content {
+  padding: 0;
+  max-width: 100%;
+}
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast);
+}
+
+.card-body {
+  padding: var(--space-5);
+}
+
+.card-header {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.card-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-heading);
+  margin: 0;
+}
+
+/* ── Form utilities ── */
+.form-label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: var(--space-1);
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+/* ── Helper utilities ── */
+.w-100 { width: 100% !important; }
+.d-flex { display: flex !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.gap-1 { gap: var(--space-1) !important; }
+.gap-2 { gap: var(--space-2) !important; }
+.gap-3 { gap: var(--space-3) !important; }
+.gap-4 { gap: var(--space-4) !important; }
+
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: var(--space-1) !important; }
+.mb-2 { margin-bottom: var(--space-2) !important; }
+.mb-3 { margin-bottom: var(--space-3) !important; }
+.mb-4 { margin-bottom: var(--space-4) !important; }
+.mt-1 { margin-top: var(--space-1) !important; }
+.mt-2 { margin-top: var(--space-2) !important; }
+.mt-3 { margin-top: var(--space-3) !important; }
+.mt-4 { margin-top: var(--space-4) !important; }
+.my-2 { margin-top: var(--space-2) !important; margin-bottom: var(--space-2) !important; }
+.me-1, .mr-1 { margin-right: var(--space-1) !important; }
+.me-2 { margin-right: var(--space-2) !important; }
+.ms-1 { margin-left: var(--space-1) !important; }
+.ms-2 { margin-left: var(--space-2) !important; }
+.ms-auto { margin-left: auto !important; }
+.p-3 { padding: var(--space-3) !important; }
+.p-4 { padding: var(--space-4) !important; }
+.d-block { display: block !important; }
+.d-grid { display: grid !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.align-items-end { align-items: flex-end !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.justify-content-center { justify-content: center !important; }
+.fw-semibold { font-weight: 600 !important; }
+.fw-bold { font-weight: 700 !important; }
+.text-center { text-align: center !important; }
+.text-end { text-align: right !important; }
+.text-danger { color: var(--color-danger) !important; }
+.text-success { color: var(--color-success) !important; }
+
+.text-muted { color: var(--color-muted) !important; }
+.elevation-0 { box-shadow: none !important; }
+
+/* ── DataTable: header kolom Sky Clinical (global) ── */
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--sky-50);
+  color: var(--sky-800);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.4rem 0.6rem;
+  white-space: nowrap;
+}
+
+/* Tinggi baris seragam di semua DataTable: `height` pada td berlaku sebagai tinggi minimum,
+   jadi baris dengan konten lebih pendek (teks 1 baris) & lebih tinggi (tombol/2 baris) sama.
+   Tombol kecil di dalam tabel diperkecil biar tidak menaikkan tinggi baris. */
+.p-datatable .p-datatable-tbody > tr > td {
+  font-size: var(--font-size-sm);
+  padding: 0.1rem 0.6rem;
+  height: 40px;
+  line-height: 1.3;
+  vertical-align: middle;
+}
+/* Tombol expand baris (panah) default-nya 2rem — diciut biar tidak menaikkan tinggi baris. */
+.p-datatable .p-datatable-tbody .p-datatable-row-toggle-button {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.p-datatable .p-datatable-tbody .p-button.p-button-sm {
+  padding: 0.05rem 0.45rem;
+  font-size: var(--font-size-sm);
+}
+.p-datatable .p-datatable-tbody .p-button.p-button-sm.p-button-icon-only {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+.p-datatable .p-datatable-tbody .p-tag {
+  font-size: var(--font-size-xs);
+  padding: 0.05rem 0.5rem;
+  line-height: 1.4;
+}
+
+/* ── Grid kompatibilitas (pengganti grid Bootstrap: .row / .col-N / .col-md-N / .g-N) ── */
+.row {
+  --gx: 1.5rem;
+  --gy: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--gy) / -2) calc(var(--gx) / -2);
+}
+.row > * {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: calc(var(--gy) / 2) calc(var(--gx) / 2);
+}
+.row.g-0 { --gx: 0px; --gy: 0px; }
+.row.g-1 { --gx: 0.25rem; --gy: 0.25rem; }
+.row.g-2 { --gx: 0.5rem; --gy: 0.5rem; }
+.row.g-3 { --gx: 1rem; --gy: 1rem; }
+.row.g-4 { --gx: 1.5rem; --gy: 1.5rem; }
+.row > .col { flex: 1 0 0%; width: auto; }
+.row > .col-1 { flex: 0 0 auto; width: 8.33333%; }
+.row > .col-2 { flex: 0 0 auto; width: 16.6667%; }
+.row > .col-3 { flex: 0 0 auto; width: 25%; }
+.row > .col-4 { flex: 0 0 auto; width: 33.3333%; }
+.row > .col-5 { flex: 0 0 auto; width: 41.6667%; }
+.row > .col-6 { flex: 0 0 auto; width: 50%; }
+.row > .col-7 { flex: 0 0 auto; width: 58.3333%; }
+.row > .col-8 { flex: 0 0 auto; width: 66.6667%; }
+.row > .col-9 { flex: 0 0 auto; width: 75%; }
+.row > .col-10 { flex: 0 0 auto; width: 83.3333%; }
+.row > .col-11 { flex: 0 0 auto; width: 91.6667%; }
+.row > .col-12 { flex: 0 0 auto; width: 100%; }
+@media (min-width: 768px) {
+  .row > .col-md-1 { flex: 0 0 auto; width: 8.33333%; }
+  .row > .col-md-2 { flex: 0 0 auto; width: 16.6667%; }
+  .row > .col-md-3 { flex: 0 0 auto; width: 25%; }
+  .row > .col-md-4 { flex: 0 0 auto; width: 33.3333%; }
+  .row > .col-md-5 { flex: 0 0 auto; width: 41.6667%; }
+  .row > .col-md-6 { flex: 0 0 auto; width: 50%; }
+  .row > .col-md-7 { flex: 0 0 auto; width: 58.3333%; }
+  .row > .col-md-8 { flex: 0 0 auto; width: 66.6667%; }
+  .row > .col-md-9 { flex: 0 0 auto; width: 75%; }
+  .row > .col-md-10 { flex: 0 0 auto; width: 83.3333%; }
+  .row > .col-md-11 { flex: 0 0 auto; width: 91.6667%; }
+  .row > .col-md-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* ── SelectButton (segmented control) Sky Clinical ──
+   Segmen aktif diisi warna primer supaya jelas terbaca; ukuran disamakan dengan kontrol filter. */
+.p-selectbutton {
+  background: var(--surface-100);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2px;
+  gap: 2px;
+}
+.p-selectbutton .p-togglebutton {
+  height: 30px;
+  padding: 0 0.85rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-muted);
+  background: transparent;
+  border: 0;
+  border-radius: calc(var(--radius-md) - 2px);
+}
+.p-selectbutton .p-togglebutton:not(.p-togglebutton-checked):hover {
+  background: var(--surface-200);
+  color: var(--color-heading);
+}
+.p-selectbutton .p-togglebutton.p-togglebutton-checked {
+  background: var(--sky-500);
+  color: #fff;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--sky-500) 35%, transparent);
+}
+.p-selectbutton .p-togglebutton .p-togglebutton-content {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* ── Satu font untuk seluruh aplikasi (Inter) ──
+   Elemen form/tabel bawaan browser tidak otomatis mewarisi font body, jadi dipaksa di sini.
+   Kelas .mono dipakai untuk angka/kode: tetap Inter, tapi lebar digit dibuat sama (tabular)
+   supaya kolom angka tetap rata tanpa font monospace. */
+html, body, button, input, select, textarea, table, th, td, label, .p-component {
+  font-family: var(--font-family);
+}
+.mono, .font-monospace {
+  font-family: var(--font-family) !important;
+  font-variant-numeric: tabular-nums;
+}
+@media (min-width: 768px) {
+  .mt-md-0 { margin-top: 0 !important; }
+}
+.w-full { width: 100% !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+
+/* Matikan efek tarik-lalu-memantul (overscroll) supaya navbar sticky dan seluruh halaman
+   tidak bisa ditarik lepas dari posisinya. */
+html, body {
+  overscroll-behavior: none;
+}

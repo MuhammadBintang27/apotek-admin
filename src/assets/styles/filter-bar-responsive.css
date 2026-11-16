@@ -1,0 +1,198 @@
+/* ============================================================================
+ * Filter Bar Responsive — Sky Clinical
+ * Global layout helper untuk toolbar/filter bar di halaman List.
+ * Dipusat di sini biar tidak perlu repeat di ~20 file view.
+ * ========================================================================== */
+
+:root {
+  --fb-height: 34px;
+  --fb-radius: var(--radius-md);
+  --fb-font:   var(--font-size-sm);
+  --fb-border: var(--color-border);
+}
+
+/* ── Normalize tinggi semua kontrol di dalam filter-bar ── */
+[class*="filter-bar"] .p-inputtext,
+[class*="filter-bar"] input[type="date"],
+[class*="filter-bar"] input[type="text"],
+[class*="filter-bar"] .pm-date-input,
+[class*="filter-bar"] .rt-date-input,
+[class*="filter-bar"] .st-date-input {
+  height: var(--fb-height) !important;
+  line-height: calc(var(--fb-height) - 2px) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: var(--fb-font) !important;
+  border-radius: var(--fb-radius) !important;
+  border-color: var(--fb-border) !important;
+  box-sizing: border-box !important;
+}
+
+[class*="filter-bar"] .p-select,
+[class*="filter-bar"] .p-multiselect {
+  height: var(--fb-height) !important;
+  border-radius: var(--fb-radius) !important;
+  border-color: var(--fb-border) !important;
+  box-sizing: border-box !important;
+}
+[class*="filter-bar"] .p-select-label,
+[class*="filter-bar"] .p-multiselect-label {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: var(--fb-font) !important;
+  box-sizing: border-box !important;
+}
+
+[class*="filter-bar"] .p-button,
+[class*="filter-bar"] .round-button2 {
+  height: var(--fb-height) !important;
+  border-radius: var(--fb-radius) !important;
+  box-sizing: border-box !important;
+  font-size: var(--fb-font) !important;
+}
+
+/* ── Tablet (≤900px): 2-column grid ── */
+@media (max-width: 900px) {
+  [class*="filter-bar"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 10px 14px;
+  }
+
+  [class*="filter-group"],
+  [class*="filter-item"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0 !important;
+    min-width: 0;
+  }
+
+  [class*="filter-group"] > input,
+  [class*="filter-group"] > .p-component,
+  [class*="filter-item"] > input,
+  [class*="filter-item"] > .p-component,
+  [class*="filter-group-row"] > .p-component,
+  [class*="filter-date"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  [class*="filter-group-row"] {
+    flex-wrap: wrap;
+  }
+
+  .filter-vdiv,
+  .filter-sep {
+    display: none;
+  }
+
+  [class*="filter-actions"],
+  [class*="filter-bar"] > .ms-auto,
+  [class*="filter-bar"] > .p-button,
+  [class*="filter-bar"] > .round-button2,
+  [class*="filter-bar"] > .p-iconfield,
+  [class*="filter-bar"] > [class*="search-field"],
+  [class*="filter-collapsible"] > .ms-auto,
+  [class*="filter-collapsible"] > .p-button,
+  [class*="filter-collapsible"] > .round-button2,
+  [class*="filter-collapsible"] > .p-iconfield,
+  [class*="filter-collapsible"] > [class*="search-field"] {
+    grid-column: 1 / -1;
+  }
+
+  [class*="filter-actions"] {
+    justify-content: flex-end;
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 4px;
+  }
+
+  [class*="filter-bar"] > .ms-auto {
+    margin-left: 0 !important;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
+
+  [class*="filter-chip-row"] {
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Mobile (≤576px): 1 column, sembunyikan filter awalnya ── */
+@media (max-width: 576px) {
+  [class*="filter-bar"] {
+    grid-template-columns: 1fr;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  [class*="filter-chip-row"] {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  [class*="filter-chip"] {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  [class*="filter-actions"],
+  [class*="filter-bar"] > .ms-auto {
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
+
+  [class*="filter-actions"] > .p-button,
+  [class*="filter-bar"] > .ms-auto > .p-button {
+    flex: 1 1 auto;
+  }
+}
+
+/* ── Filter toggle button (mobile collapse trigger) ── */
+[class*="filter-toggle-btn"] {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  height: var(--fb-height);
+  padding: 0 14px;
+  border-radius: var(--fb-radius);
+  border: 1px solid var(--color-border);
+  background: var(--surface-0);
+  color: var(--color-text);
+  font-size: var(--fb-font);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-family);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+[class*="filter-toggle-btn"]:hover {
+  border-color: var(--surface-400);
+}
+[class*="filter-toggle-btn"].active {
+  border-color: var(--sky-600) !important;
+  background: var(--sky-50) !important;
+  color: var(--sky-700) !important;
+}
+
+[class*="filter-collapsible"] {
+  display: contents;
+}
+
+@media (max-width: 576px) {
+  [class*="filter-toggle-btn"] {
+    display: inline-flex;
+  }
+
+  [class*="filter-collapsible"]:not(.is-open) > * {
+    display: none !important;
+  }
+}

@@ -1,0 +1,33 @@
+/* ============================================================================
+ * Responsive "ringkasan/stat strip" — kartu-kartu ringkasan angka di atas
+ * banyak halaman (RekapHutangView, RekapPiutangView, BayarHutangView,
+ * RekapBarangDetailView, RekapSupplierDetailView, DetailPiutangView,
+ * PenerimaanListView, PenerimaanFormView, dll).
+ *
+ * Bug-nya: strip-strip ini ditulis pakai CSS Grid dengan JUMLAH KOLOM TETAP
+ * (`grid-template-columns: repeat(5, 1fr)` dst) tanpa media query sama
+ * sekali. Begitu layarnya sempit (HP), 5 kolom sama lebar itu dipaksa muat
+ * dalam ~360px — tiap kartu jadi ~60px, teksnya (ikon+label+angka/Rp) gak
+ * muat dan numpuk/overlap kayak yang kelihatan di ObatListView/RekapHutang.
+ *
+ * Fix-nya: sama seperti filter-bar-responsive.css — 1 file global pakai
+ * attribute-selector [class*="..."] biar otomatis kena ke semua varian nama
+ * (ringkasan-strip, det-stat-strip, det-stat-row, pm-stat-strip, dst) tanpa
+ * ubah HTML/CSS di tiap file. Kolom tetap diganti `repeat(auto-fit,
+ * minmax(140px, 1fr))` — jumlah kolom jadi otomatis menyesuaikan lebar layar
+ * (gak perlu breakpoint spesifik sama sekali): selebar apa pun, tiap kartu
+ * minimal 140px, sisanya di-wrap ke baris baru. Ini pattern yang SUDAH
+ * dipakai & terbukti aman di WelcomeHomeView punya .kpi-grid — di sini cuma
+ * disamain ke semua tempat lain yang belum pakai pattern itu.
+ *
+ * Catatan: attribute-selector ini juga somehow bakal "kena" ke strip yang
+ * sebetulnya display:flex (barang-stat-strip, cr-stat-strip, dst, yang
+ * modelnya beda — baris ikon+angka dipisah garis vertikal, bukan kartu
+ * grid) — tapi itu aman, grid-template-columns cuma berlaku kalau
+ * display-nya grid, jadi di elemen flex itu aturan ini simply diabaikan.
+ * ========================================================================== */
+[class*="stat-strip"],
+[class*="stat-row"],
+[class*="ringkasan-strip"] {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+}

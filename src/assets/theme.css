@@ -1,0 +1,115 @@
+/* ============================================================
+   Sky Clinical — Design Tokens
+   Semua nilai warna, spasi, dan shadow terpusat di sini.
+   Ubah di sini → otomatis berlaku ke seluruh app.
+   ============================================================ */
+
+:root {
+  /* ── Brand (alias ke warna primer PrimeVue) ──
+     Nama "--sky-*" dipertahankan karena dipakai di seluruh app; isinya mengikuti warna yang
+     dipilih user (default Sky). Jangan diisi hex — ubah lewat composables/useAppTheme.js. */
+  --sky-50: var(--p-primary-50, #f0f9ff);
+  --sky-100: var(--p-primary-100, #e0f2fe);
+  --sky-200: var(--p-primary-200, #bae6fd);
+  --sky-300: var(--p-primary-300, #7dd3fc);
+  --sky-400: var(--p-primary-400, #38bdf8);
+  --sky-500: var(--p-primary-500, #0ea5e9);
+  --sky-600: var(--p-primary-600, #0284c7);
+  --sky-700: var(--p-primary-700, #0369a1);
+  --sky-800: var(--p-primary-800, #075985);
+  --sky-900: var(--p-primary-900, #0c4a6e);
+
+  /* ── Surface (alias ke permukaan PrimeVue) ── */
+  --surface-0: var(--p-surface-0, #ffffff);
+  --surface-50: var(--p-surface-50, #f8fafc);
+  --surface-100: var(--p-surface-100, #f1f5f9);
+  --surface-200: var(--p-surface-200, #e2e8f0);
+  --surface-300: var(--p-surface-300, #cbd5e1);
+  --surface-400: var(--p-surface-400, #94a3b8);
+  --surface-500: var(--p-surface-500, #64748b);
+  --surface-600: var(--p-surface-600, #475569);
+  --surface-700: var(--p-surface-700, #334155);
+  --surface-800: var(--p-surface-800, #1e293b);
+  --surface-900: var(--p-surface-900, #0f172a);
+
+  /* ── Status Colors ── */
+  --color-success:      #10b981;
+  --color-success-soft: #ecfdf5;
+  --color-warning:      #f59e0b;
+  --color-warning-soft: #fffbeb;
+  --color-danger:       #ef4444;
+  --color-danger-soft:  #fef2f2;
+  --color-info:         #3b82f6;
+  --color-info-soft:    #eff6ff;
+
+  /* ── Semantic Aliases ── */
+  --color-primary:        var(--sky-500);
+  --color-primary-hover:  var(--sky-600);
+  --color-primary-soft:   var(--sky-50);
+  --color-primary-border: var(--sky-200);
+
+  --color-bg:             var(--surface-50);
+  --color-sidebar-bg:     color-mix(in srgb, var(--sky-100) 65%, #ffffff);
+  --color-sidebar-border: var(--sky-200);
+  --color-navbar-bg:      var(--surface-0);
+  --color-card:           var(--surface-0);
+  --color-border:         var(--surface-200);
+  --color-border-light:   var(--surface-100);
+
+  --color-text:         var(--surface-700);
+  --color-heading:      var(--surface-900);
+  --color-muted:        var(--surface-500);
+  --color-placeholder:  var(--surface-400);
+
+  /* ── Layout Dimensions ── */
+  --sidebar-width:           250px;
+  --sidebar-width-collapsed: 64px;
+  --navbar-height:           60px;
+
+  /* ── Border Radius ── */
+  --radius-xs:  2px;
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-xs:   0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm:   0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md:   0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg:   0 8px 24px rgba(15, 23, 42, 0.10), 0 4px 8px rgba(15, 23, 42, 0.04);
+  --shadow-glow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+
+  /* ── Typography ── */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs:   11px;
+  --font-size-sm:   12px;
+  --font-size-base: 13px;
+  --font-size-md:   14px;
+  --font-size-lg:   16px;
+  --font-size-xl:   18px;
+  --font-size-2xl:  20px;
+  --font-size-3xl:  24px;
+
+  /* ── Spacing ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* ── Transitions ── */
+  --transition-fast:   0.12s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow:   0.3s ease;
+
+  /* ── Z-index scale ── */
+  --z-sidebar:  1041;
+  --z-navbar:   1039;
+  --z-modal:    1050;
+  --z-toast:    1060;
+  --z-tooltip:  1070;
+}
