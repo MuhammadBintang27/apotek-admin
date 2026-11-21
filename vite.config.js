@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
       ...(isProd ? [] : [vueDevTools()]),
     ],
 
-    base: '/corepotek-admin/',
+    base: '/',
 
     server: {
       proxy: {
